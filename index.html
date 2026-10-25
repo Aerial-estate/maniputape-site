@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Manipu-Tape — Lofi Tape Manipulator · Coming Soon</title>
+  <meta name="description" content="Manipu-Tape by Maniputape Audio: tape saturation, wow & flutter, lofi crushing, tape echo, spring reverb and tape stop in one worn-in plugin. Coming soon for Mac (AU / VST3).">
+  <meta name="theme-color" content="#120d0a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://maniputape.com/">
+  <meta property="og:title" content="Manipu-Tape — Lofi Tape Manipulator">
+  <meta property="og:description" content="Tape, lofi, space and tape stop in one worn-in plugin. Coming soon from Maniputape Audio.">
+  <meta property="og:image" content="https://maniputape.com/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #120d0a;
+      --panel: #e9dcc1;
+      --ink: #241a14;
+      --text: #f3e8d4;
+      --muted: #b9a888;
+      --red: #e8392c;
+      --orange: #f08a24;
+      --amber: #ffb347;
+      --head: 'Oswald', 'Arial Narrow', Impact, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(138, 74, 28, 0.28), transparent 55%),
+        radial-gradient(ellipse at 85% 70%, rgba(138, 74, 28, 0.22), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    /* film grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>");
+    }
+    main {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: max(24px, env(safe-area-inset-top)) 20px max(40px, env(safe-area-inset-bottom));
+      text-align: center;
+    }
+
+    .hero {
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #000;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .soon {
+      margin: 34px 0 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      font-family: var(--head);
+      font-weight: 700;
+      font-size: clamp(30px, 6vw, 54px);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-shadow: 0 0 18px rgba(240, 138, 36, 0.35);
+    }
+    .soon::before, .soon::after {
+      content: '';
+      width: clamp(24px, 8vw, 80px);
+      height: 3px;
+      background: var(--red);
+    }
+
+    .lede {
+      max-width: 40em;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2.3vw, 19px);
+      line-height: 1.55;
+    }
+
+    .shot {
+      margin: 38px auto 0;
+      max-width: 980px;
+    }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 179, 71, 0.15);
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 40px auto 0;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      text-align: left;
+    }
+    .features li {
+      background: linear-gradient(160deg, var(--panel), #cdb88f);
+      color: var(--ink);
+      border: 2px solid #000;
+      border-radius: 8px;
+      padding: 0 0 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+    }
+    .features h2 {
+      margin: 0 0 10px;
+      padding: 8px 14px;
+      background: #1a1411;
+      color: var(--orange);
+      font-family: var(--head);
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .features h2::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background: var(--red);
+      box-shadow: 0 0 8px rgba(232, 57, 44, 0.8);
+    }
+    .features p {
+      margin: 0 14px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .formats {
+      margin-top: 34px;
+      font-family: var(--head);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .formats b { color: var(--red); font-weight: 500; }
+
+    footer {
+      margin-top: 40px;
+      font-size: 13px;
+      color: #7d6e58;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="hero" src="header.jpg" width="1060" height="192"
+         alt="Manipu-Tape — Lofi Tape Manipulator, over a retro sunset highway">
+
+    <h1 class="soon">Coming Soon</h1>
+    <p class="lede">
+      One worn-in plugin for that lived-in tape sound — saturation, wow &amp; flutter, lofi crunch,
+      dubby tape echo, spring reverb and a tape stop you can play like an instrument.
+    </p>
+
+    <div class="shot">
+      <img src="plugin.jpg" width="1600" height="929" loading="lazy"
+           alt="The Manipu-Tape plugin window: Tape, Lofi, Modulation, Space and Tape Stop sections with retro knobs">
+    </div>
+
+    <ul class="features">
+      <li><h2>Tape</h2><p>Six tape types from Chrome to 8 Track, aged from New to Dirty, with drive, saturation and harmonics.</p></li>
+      <li><h2>Lofi</h2><p>Sample-rate and bit crushing, hiss, wow, flutter, wear dropouts and dust crackle.</p></li>
+      <li><h2>Space</h2><p>Room, hall and plate reverbs, a dubby tape echo and a drippy spring.</p></li>
+      <li><h2>Modulation</h2><p>Five LFO shapes on pitch, filter, amp or pan — from gentle warble to seasick.</p></li>
+      <li><h2>Tape Stop</h2><p>Slow the whole mix to a halt and spin it back up — automatable in your DAW.</p></li>
+    </ul>
+
+    <div class="formats">Mac <b>•</b> AU <b>•</b> VST3 <b>•</b> Apple Silicon &amp; Intel</div>
+
+    <footer>© 2026 Maniputape Audio</footer>
+  </main>
+</body>
+</html>
